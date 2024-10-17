@@ -4,13 +4,13 @@
   <xacro:macro name="holder" params="name parent child x y z">
 
     <!-- joint: plate -> holder -->
-      <joint name="${parent1}_to_${name}" type="fixed">
+      <joint name="${parent}_to_${name}" type="fixed">
         <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
         <parent link="${parent}"/>
         <child link="${name}"/>
       </joint>
 
-      <joint name="${name}_to_${parent2}" type="fixed">
+      <joint name="${name}_to_${child}" type="fixed">
         <origin xyz="${-1*x} ${-1*y} ${z}" rpy="0 0 0"/>
         <parent link="${name}"/>
         <child link="${child}"/>
