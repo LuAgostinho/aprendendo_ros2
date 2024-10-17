@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot name="myfirstrobot"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="macros/link_geometry.urdf.xacro" />
+  <xacro:include filename="macros/properties.urdf.xacro" />
+
+  <xacro:include filename="macros/parts/base.urdf.xacro" />
+  <xacro:include filename="macros/parts/head.urdf.xacro" />
+  <xacro:include filename="macros/parts/leg.urdf.xacro" />
+
+  <xacro:include filename="simulation/gazebo_base.urdf.xacro" />
+  <xacro:include filename="simulation/gazebo_laser.urdf.xacro" />
+  <xacro:include filename="simulation/gazebo_camera.urdf.xacro" />
+  <xacro:include filename="simulation/imu.urdf.xacro"/>
+
+  <!-- Robot -->
+  
+  <xacro:base name="base_link"/>
+  <xacro:torso name="torso"/>
+  <xacro:plate name="plate_bottom">
+  <xacro:plate name="plate_middle">
+  <xacro:plate name="plate_top">
+  <xacro:holder name="holder1" parent1="plate_bottom" parent2="plate_middle" x= "holder_xy" y="holder_xy" z="holder_z">
+  <xacro:holder name="holder2" parent1="plate_bottom" parent2="plate_middle" x= "-holder_xy" y="-holder_xy" z="holder_z">
+  <xacro:holder name="holder3" parent1="plate_bottom" parent2="plate_middle" x= "-holder_xy" y="holder_xy" z="holder_z">
+  <xacro:holder name="holder4" parent1="plate_bottom" parent2="plate_middle" x= "holder_xy" y="-holder_xy" z="holder_z">
+  <xacro:holder name="holder5" parent1="plate_middle" parent2="plate_top" x= "holder_xy" y="holder_xy" z="holder_z">
+  <xacro:holder name="holder6" parent1="plate_middle" parent2="plate_top" x= "-holder_xy" y="-holder_xy" z="holder_z">
+  <xacro:holder name="holder7" parent1="plate_middle" parent2="plate_top" x= "-holder_xy" y="holder_xy" z="holder_z">
+  <xacro:holder name="holder8" parent1="plate_middle" parent2="plate_top" x= "holder_xy" y="-holder_xy" z="holder_z">
+  <xacro:screen name="screen_front" x="0.18" y="0" z="0.02">
+  <xacro:screen name="screen_back" x="-0.18" y="0" z="0.02">
+  <xacro:camera name="camera_frente" parent="screen_front" x="0" y="0" z="0.11">
+  <xacro:wheel name="left_wheel">
+    <origin xyz="-0.09 -0.09 -0.25" rpy="0 0 0"/>
+  </xacro:wheel>
+  <xacro:wheel name="right_wheel">
+    <origin xyz="-0.09 0.09 -0.25" rpy="0 0 0"/>
+  </xacro:wheel>
+
+  <!-- IMU -->
+  <xacro:imu name="imu" parent="base">
+    <origin xyz="0.0 0.0 0.055" rpy="0 0 0"/>
+  </xacro:imu>
+
+
+
+  <!-- Plugins -->
+  <xacro:gazebo_base/>
+  <xacro:gazebo_laser reference="base_scan"/>
+  <xacro:gazebo_camera reference="camera_frente"/>
+
+</robot>

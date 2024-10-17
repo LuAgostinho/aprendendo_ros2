@@ -50,7 +50,7 @@
   <link name="torso">
     <visual>
       <geometry>
-        <cylinder length="0.3" radius="0.2"/>
+        <cylinder length="0.4" radius="0.2"/>
       </geometry>
     </visual>
 	<collision>
