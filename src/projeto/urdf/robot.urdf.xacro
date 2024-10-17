@@ -43,7 +43,7 @@
   </xacro:wheel>
 
   <!-- IMU -->
-  <xacro:imu name="imu" parent="base">
+  <xacro:imu name="imu" parent="base_link">
     <origin xyz="0.0 0.0 0.055" rpy="0 0 0"/>
   </xacro:imu>
 
