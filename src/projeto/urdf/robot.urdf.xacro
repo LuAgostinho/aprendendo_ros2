@@ -5,8 +5,12 @@
   <xacro:include filename="macros/properties.urdf.xacro" />
 
   <xacro:include filename="macros/parts/base.urdf.xacro" />
-  <xacro:include filename="macros/parts/head.urdf.xacro" />
-  <xacro:include filename="macros/parts/leg.urdf.xacro" />
+  <xacro:include filename="macros/parts/camera.urdf.xacro" />
+  <xacro:include filename="macros/parts/holder.urdf.xacro" />
+  <xacro:include filename="macros/parts/plate.urdf.xacro" />
+  <xacro:include filename="macros/parts/screen.urdf.xacro" />
+  <xacro:include filename="macros/parts/torso.urdf.xacro" />
+  <xacro:include filename="macros/parts/wheel.urdf.xacro" />
 
   <xacro:include filename="simulation/gazebo_base.urdf.xacro" />
   <xacro:include filename="simulation/gazebo_laser.urdf.xacro" />
