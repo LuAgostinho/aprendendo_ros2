@@ -3,7 +3,7 @@
 
   <xacro:macro name="screen" params="name x y z">
 
-    <!-- joint: base_footprint -> base -->
+    <!-- joint: screen -> plate -->
     <joint name="plate_top_to_${name}" type="fixed">
       <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
       <parent link="plate_top"/>
