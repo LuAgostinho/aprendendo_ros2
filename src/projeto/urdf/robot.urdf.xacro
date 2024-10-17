@@ -24,14 +24,14 @@
   <xacro:plate name="plate_bottom"/>
   <xacro:plate name="plate_middle"/>
   <xacro:plate name="plate_top"/>
-  <xacro:holder name="holder1" parent1="plate_bottom" parent2="plate_middle" x= "holder_xy" y="holder_xy" z="holder_z"/>
-  <xacro:holder name="holder2" parent1="plate_bottom" parent2="plate_middle" x= "-holder_xy" y="-holder_xy" z="holder_z"/>
-  <xacro:holder name="holder3" parent1="plate_bottom" parent2="plate_middle" x= "-holder_xy" y="holder_xy" z="holder_z"/>
-  <xacro:holder name="holder4" parent1="plate_bottom" parent2="plate_middle" x= "holder_xy" y="-holder_xy" z="holder_z"/>
-  <xacro:holder name="holder5" parent1="plate_middle" parent2="plate_top" x= "holder_xy" y="holder_xy" z="holder_z"/>
-  <xacro:holder name="holder6" parent1="plate_middle" parent2="plate_top" x= "-holder_xy" y="-holder_xy" z="holder_z"/>
-  <xacro:holder name="holder7" parent1="plate_middle" parent2="plate_top" x= "-holder_xy" y="holder_xy" z="holder_z"/>
-  <xacro:holder name="holder8" parent1="plate_middle" parent2="plate_top" x= "holder_xy" y="-holder_xy" z="holder_z"/>
+  <xacro:holder name="holder1" parent1="plate_bottom" parent2="plate_middle" x= "${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder2" parent1="plate_bottom" parent2="plate_middle" x= "-${holder_xy}" y="-${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder3" parent1="plate_bottom" parent2="plate_middle" x= "-${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder4" parent1="plate_bottom" parent2="plate_middle" x= "${holder_xy}" y="-${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder5" parent1="plate_middle" parent2="plate_top" x= "${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder6" parent1="plate_middle" parent2="plate_top" x= "-${holder_xy}" y="-${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder7" parent1="plate_middle" parent2="plate_top" x= "-${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
+  <xacro:holder name="holder8" parent1="plate_middle" parent2="plate_top" x= "${holder_xy}" y="-${holder_xy}" z="${holder_z}"/>
   <xacro:screen name="screen_front" x="0.18" y="0" z="0.02"/>
   <xacro:screen name="screen_back" x="-0.18" y="0" z="0.02"/>
   <xacro:camera name="camera_frente" parent="screen_front" x="0" y="0" z="0.11"/>
