@@ -20,20 +20,14 @@
   <!-- Robot -->
   
   <xacro:base name="base_link"/>
-  <xacro:torso name="torso"/>
   <xacro:plate name="plate_bottom"/>
+  <xacro:torso name="torso" parent="base_scan" child="plate_bottom"/>
   <xacro:plate name="plate_middle"/>
   <xacro:plate name="plate_top"/>
-  <xacro:holder name="holder1" parent="plate_bottom" child="plate_middle" x= "${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder2" parent="plate_bottom" child="plate_middle" x= "${-1*holder_xy}" y="-${-1*holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder3" parent="plate_bottom" child="plate_middle" x= "${-1*holder_xy}" y="${holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder4" parent="plate_bottom" child="plate_middle" x= "${holder_xy}" y="${-1*holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder5" parent="plate_middle" child="plate_top" x= "${holder_xy}" y="${holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder6" parent="plate_middle" child="plate_top" x= "${-1*holder_xy}" y="${-1*holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder7" parent="plate_middle" child="plate_top" x= "${-1*holder_xy}" y="${holder_xy}" z="${holder_z}"/>
-  <xacro:holder name="holder8" parent="plate_middle" child="plate_top" x= "${holder_xy}" y="${-1*holder_xy}" z="${holder_z}"/>
-  <xacro:screen name="screen_front" x="0.18" y="0" z="0.02"/>
-  <xacro:screen name="screen_back" x="-0.18" y="0" z="0.02"/>
+  <xacro:holder name="holder1" parent="plate_bottom" child="plate_middle" z="${holder_z}"/>
+  <xacro:holder name="holder2" parent="plate_middle" child="plate_top" z="${holder_z}"/>
+  <xacro:screen name="screen_front" parent="plate_top" x="0.18" y="0" z="0.02"/>
+  <xacro:screen name="screen_back" parent="plate_top" x="-0.18" y="0" z="0.02"/>
   <xacro:camera name="camera_frente" parent="screen_front" x="0" y="0" z="0.11"/>
   <xacro:wheel name="left_wheel">
     <origin xyz="-0.09 -0.09 -0.25" rpy="0 0 0"/>
@@ -41,6 +35,10 @@
   <xacro:wheel name="right_wheel">
     <origin xyz="-0.09 0.09 -0.25" rpy="0 0 0"/>
   </xacro:wheel>
+  <xacro:wheel name="front_wheel">
+    <origin xyz="0.09 0 -0.25" rpy="0 0 0"/>
+  </xacro:wheel>
+
 
   <!-- IMU -->
   <xacro:imu name="imu" parent="base_link">
