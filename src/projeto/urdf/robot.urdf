@@ -12,9 +12,9 @@
   <link name="base_footprint"/>
   <!-- joint: base_footprint -> base -->
   <joint name="joint_base_footprint_to_base" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.33"/>
+    <origin rpy="0 0 0" xyz="0 0 0.125"/>
     <parent link="base_footprint"/>
-    <child link="base_link"/>
+    <child link="base_scan"/>
   </joint>
   <!-- link: base -->
   <link name="base_link">
@@ -38,8 +38,8 @@
   </link>
   <joint name="base_to_laser" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.2125"/>
-    <parent link="base_link"/>
-    <child link="base_scan"/>
+    <parent link="base_scan"/>
+    <child link="base_link"/>
   </joint>
   <link name="base_scan">
     <visual>
@@ -60,6 +60,11 @@
       <inertia ixx="0.010052083333333335" ixy="0.0" ixz="0.0" iyy="0.010052083333333335" iyz="0.0" izz="0.020000000000000004"/>
     </inertial>
   </link>
+  <joint name="base_to_plate" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.21"/>
+    <parent link="base_link"/>
+    <child link="plate_bottom"/>
+  </joint>
   <!-- link: base -->
   <link name="plate_bottom">
     <visual>
@@ -80,38 +85,6 @@
       <inertia ixx="0.0050166666666666675" ixy="0.0" ixz="0.0" iyy="0.0050166666666666675" iyz="0.0" izz="0.010000000000000002"/>
     </inertial>
   </link>
-  <!-- joint: torso -> laser -->
-  <joint name="torso_to_laser" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.2125"/>
-    <parent link="base_scan"/>
-    <child link="torso"/>
-  </joint>
-  <!-- link: base -->
-  <link name="torso">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.4" radius="0.2"/>
-      </geometry>
-      <material name="Cyan"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.4" radius="0.2"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="2.0"/>
-      <inertia ixx="0.04666666666666667" ixy="0.0" ixz="0.0" iyy="0.04666666666666667" iyz="0.0" izz="0.04000000000000001"/>
-    </inertial>
-  </link>
-  <!-- joint: torso -> laser -->
-  <joint name="torso_to_plate" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.21"/>
-    <parent link="torso"/>
-    <child link="plate_bottom"/>
-  </joint>
   <!-- link: base -->
   <link name="plate_middle">
     <visual>
@@ -396,8 +369,8 @@
   </link>
   <!-- joint: parent_base -> wheel -->
   <joint name="base_link_to_left_wheel" type="continuous">
-    <origin rpy="0 0 0" xyz="-0.09 -0.09 -0.25"/>
-    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="-0.09 -0.09 -0.0625"/>
+    <parent link="base_scan"/>
     <child link="left_wheel"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -407,24 +380,24 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </collision>
     <inertial>
       <mass value="0.5"/>
-      <inertia ixx="0.0008888888888888889" ixy="0.0" ixz="0.0" iyy="0.0008888888888888889" iyz="0.0" izz="0.0008888888888888889"/>
+      <inertia ixx="0.0005000000000000001" ixy="0.0" ixz="0.0" iyy="0.0005000000000000001" iyz="0.0" izz="0.0005000000000000001"/>
     </inertial>
   </link>
   <!-- joint: parent_base -> wheel -->
   <joint name="base_link_to_right_wheel" type="continuous">
-    <origin rpy="0 0 0" xyz="-0.09 0.09 -0.25"/>
-    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="-0.09 0.09 -0.0625"/>
+    <parent link="base_scan"/>
     <child link="right_wheel"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -434,24 +407,24 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </collision>
     <inertial>
       <mass value="0.5"/>
-      <inertia ixx="0.0008888888888888889" ixy="0.0" ixz="0.0" iyy="0.0008888888888888889" iyz="0.0" izz="0.0008888888888888889"/>
+      <inertia ixx="0.0005000000000000001" ixy="0.0" ixz="0.0" iyy="0.0005000000000000001" iyz="0.0" izz="0.0005000000000000001"/>
     </inertial>
   </link>
   <!-- joint: parent_base -> wheel -->
   <joint name="base_link_to_front_wheel" type="continuous">
-    <origin rpy="0 0 0" xyz="0.09 0 -0.25"/>
-    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.09 0 -0.0625"/>
+    <parent link="base_scan"/>
     <child link="front_wheel"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -461,18 +434,18 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <sphere radius="0.06666666666666667"/>
+        <sphere radius="0.05"/>
       </geometry>
     </collision>
     <inertial>
       <mass value="0.5"/>
-      <inertia ixx="0.0008888888888888889" ixy="0.0" ixz="0.0" iyy="0.0008888888888888889" iyz="0.0" izz="0.0008888888888888889"/>
+      <inertia ixx="0.0005000000000000001" ixy="0.0" ixz="0.0" iyy="0.0005000000000000001" iyz="0.0" izz="0.0005000000000000001"/>
     </inertial>
   </link>
   <joint name="base_link_to_imu" type="fixed">
@@ -603,8 +576,8 @@
       <left_joint>base_link_to_left_wheel</left_joint>
       <right_joint>base_link_to_right_wheel</right_joint>
       <!-- kinematics -->
-      <wheel_separation>0.025</wheel_separation>
-      <wheel_diameter>0.13</wheel_diameter>
+      <wheel_separation>0.13</wheel_separation>
+      <wheel_diameter>0.1</wheel_diameter>
       <!-- limits -->
       <max_wheel_torque>20</max_wheel_torque>
       <max_wheel_acceleration>1.0</max_wheel_acceleration>

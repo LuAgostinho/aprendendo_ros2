@@ -9,7 +9,6 @@
   <xacro:include filename="macros/parts/holder.urdf.xacro" />
   <xacro:include filename="macros/parts/plate.urdf.xacro" />
   <xacro:include filename="macros/parts/screen.urdf.xacro" />
-  <xacro:include filename="macros/parts/torso.urdf.xacro" />
   <xacro:include filename="macros/parts/wheel.urdf.xacro" />
 
   <xacro:include filename="simulation/gazebo_base.urdf.xacro" />
@@ -21,7 +20,6 @@
   
   <xacro:base name="base_link"/>
   <xacro:plate name="plate_bottom"/>
-  <xacro:torso name="torso" parent="base_scan" child="plate_bottom"/>
   <xacro:plate name="plate_middle"/>
   <xacro:plate name="plate_top"/>
   <xacro:holder name="holder1" parent="plate_bottom" child="plate_middle" z="${holder_z}"/>
@@ -30,13 +28,13 @@
   <xacro:screen name="screen_back" parent="plate_top" x="-0.18" y="0" z="0.02"/>
   <xacro:camera name="camera_frente" parent="screen_front" x="0" y="0" z="0.11"/>
   <xacro:wheel name="left_wheel">
-    <origin xyz="-0.09 -0.09 -0.25" rpy="0 0 0"/>
+    <origin xyz="-0.09 -0.09 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="right_wheel">
-    <origin xyz="-0.09 0.09 -0.25" rpy="0 0 0"/>
+    <origin xyz="-0.09 0.09 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="front_wheel">
-    <origin xyz="0.09 0 -0.25" rpy="0 0 0"/>
+    <origin xyz="0.09 0 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
   </xacro:wheel>
 
 

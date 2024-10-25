@@ -20,8 +20,8 @@
         <right_joint>base_link_to_right_wheel</right_joint>
 
         <!-- kinematics -->
-        <wheel_separation>0.025</wheel_separation>
-        <wheel_diameter>0.13</wheel_diameter>
+        <wheel_separation>0.13</wheel_separation>
+        <wheel_diameter>0.1</wheel_diameter>
 
         <!-- limits -->
         <max_wheel_torque>20</max_wheel_torque>
