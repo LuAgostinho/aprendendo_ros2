@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="holder" params="name parent child z">
+
+    <!-- joint: plate -> holder -->
+      <joint name="${parent}_to_${name}" type="fixed">
+        <origin xyz="0 0 ${z}" rpy="0 0 0"/>
+        <parent link="${parent}"/>
+        <child link="${name}"/>
+      </joint>
+
+      <joint name="${name}_to_${child}" type="fixed">
+        <origin xyz="0 0 ${z}" rpy="0 0 0"/>
+        <parent link="${name}"/>
+        <child link="${child}"/>
+      </joint>
+
+    <!-- link: base -->
+    <link name="${name}">
+      <xacro:create_cylinder m="${holder_mass}" r="${holder_radius}" l="${holder_length}">
+        <origin xyz="${holder_xy} ${holder_xy} 0" rpy="0 0 0"/>
+      </xacro:create_cylinder>
+      <xacro:create_cylinder m="${holder_mass}" r="${holder_radius}" l="${holder_length}">
+        <origin xyz="${-1*holder_xy} ${-1*holder_xy} 0" rpy="0 0 0"/>
+      </xacro:create_cylinder>
+      <xacro:create_cylinder m="${holder_mass}" r="${holder_radius}" l="${holder_length}">
+        <origin xyz="${holder_xy} ${-1*holder_xy} 0" rpy="0 0 0"/>
+      </xacro:create_cylinder>
+      <xacro:create_cylinder m="${holder_mass}" r="${holder_radius}" l="${holder_length}">
+        <origin xyz="${-1*holder_xy} ${holder_xy} 0" rpy="0 0 0"/>
+      </xacro:create_cylinder>
+    </link>
+
+  </xacro:macro>
+
+</robot>

@@ -8,7 +8,7 @@
       <xacro:insert_block name="origin" />
       <parent link="base_scan"/>
       <child link="${name}"/>
-      <axis xyz="0 1 0"/>
+      <axis xyz="0 0 1"/>
     </joint>
 
     <!-- link: wheel -->
