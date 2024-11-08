@@ -1,14 +1,10 @@
 <?xml version="1.0"?>
-<robot name="garcom" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="limpeza" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="macros/link_geometry.urdf.xacro" />
   <xacro:include filename="macros/properties.urdf.xacro" />
 
   <xacro:include filename="macros/parts/base.urdf.xacro" />
-  <xacro:include filename="macros/parts/camera.urdf.xacro" />
-  <xacro:include filename="macros/parts/holder.urdf.xacro" />
-  <xacro:include filename="macros/parts/plate.urdf.xacro" />
-  <xacro:include filename="macros/parts/screen.urdf.xacro" />
   <xacro:include filename="macros/parts/wheel.urdf.xacro" />
 
   <xacro:include filename="simulation/gazebo_base.urdf.xacro" />
@@ -19,35 +15,25 @@
   <!-- Robot -->
   
   <xacro:base name="base_link"/>
-  <xacro:plate name="plate_bottom"/>
-  <xacro:plate name="plate_middle"/>
-  <xacro:plate name="plate_top"/>
-  <xacro:holder name="holder1" parent="plate_bottom" child="plate_middle" z="${holder_z}"/>
-  <xacro:holder name="holder2" parent="plate_middle" child="plate_top" z="${holder_z}"/>
-  <xacro:screen name="screen_front" parent="plate_top" x="0.18" y="0" z="0.02"/>
-  <xacro:screen name="screen_back" parent="plate_top" x="-0.18" y="0" z="0.02"/>
-  <xacro:camera name="camera_frente" parent="screen_front" x="0" y="0" z="0.11"/>
   <xacro:wheel name="left_wheel">
-    <origin xyz="-0.09 -0.09 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
+    <origin xyz="-0.048 -0.048 ${-wheel_radius}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="right_wheel">
-    <origin xyz="-0.09 0.09 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
+    <origin xyz="-0.048 0.048 ${-wheel_radius}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="front_wheel">
-    <origin xyz="0.09 0 ${-wheel_radius -(laser_length/2)}" rpy="0 0 0"/>
+    <origin xyz="0.048 0 ${-wheel_radius}" rpy="0 0 0"/>
   </xacro:wheel>
 
 
-  <!-- IMU -->
+  <!-- IMU
   <xacro:imu name="imu" parent="base_link">
     <origin xyz="0.0 0.0 0.055" rpy="0 0 0"/>
-  </xacro:imu>
+  </xacro:imu> -->
 
 
 
   <!-- Plugins -->
   <xacro:gazebo_base/>
   <xacro:gazebo_laser reference="base_scan"/>
-  <xacro:gazebo_camera reference="camera_frente"/>
-
 </robot>

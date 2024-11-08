@@ -8,9 +8,9 @@
 
     <!-- joint: base_footprint -> base -->
     <joint name="joint_base_footprint_to_base" type="fixed">
-      <origin xyz="0 0 ${(wheel_radius)*2 + (laser_length)}" rpy="0 0 0"/>
+      <origin xyz="0 0 ${(wheel_radius)*2}" rpy="0 0 0"/>
       <parent link="base_footprint"/>
-      <child link="base_scan"/>
+      <child link="base_link"/>
     </joint>
 
     <!-- link: base -->
@@ -21,7 +21,7 @@
     </link>
 
   <joint name="base_to_laser" type="fixed">
-    <origin xyz="0 0 0.2125" rpy="0 0 0"/>
+    <origin xyz="0 0 ${body_length/2 + laser_length/2}" rpy="0 0 0"/>
     <parent link="base_scan"/>
     <child link="${name}"/>
   </joint>
@@ -30,13 +30,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:create_cylinder>
   </link>
-
-  <joint name="base_to_plate" type="fixed">
-    <origin xyz="0 0 0.21" rpy="0 0 0"/>
-    <parent link="${name}"/>
-    <child link="plate_bottom"/>
-  </joint>
-
+  
   </xacro:macro>
 
 </robot>
