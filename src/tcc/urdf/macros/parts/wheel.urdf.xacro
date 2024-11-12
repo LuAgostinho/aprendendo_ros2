@@ -6,7 +6,7 @@
     <!-- joint: parent_base -> wheel -->
     <joint name="base_link_to_${name}" type="continuous">
       <xacro:insert_block name="origin" />
-      <parent link="base_scan"/>
+      <parent link="base_link"/>
       <child link="${name}"/>
       <axis xyz="0 0 1"/>
     </joint>

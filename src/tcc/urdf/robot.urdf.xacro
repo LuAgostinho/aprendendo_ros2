@@ -16,13 +16,13 @@
   
   <xacro:base name="base_link"/>
   <xacro:wheel name="left_wheel">
-    <origin xyz="-0.048 -0.048 ${-wheel_radius}" rpy="0 0 0"/>
+    <origin xyz="-0.048 -0.048 ${-wheel_radius -body_length/2}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="right_wheel">
-    <origin xyz="-0.048 0.048 ${-wheel_radius}" rpy="0 0 0"/>
+    <origin xyz="-0.048 0.048 ${-wheel_radius -body_length/2}" rpy="0 0 0"/>
   </xacro:wheel>
   <xacro:wheel name="front_wheel">
-    <origin xyz="0.048 0 ${-wheel_radius}" rpy="0 0 0"/>
+    <origin xyz="0.048 0 ${-wheel_radius -body_length/2}" rpy="0 0 0"/>
   </xacro:wheel>
 
 
