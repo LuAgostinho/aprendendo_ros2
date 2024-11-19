@@ -20,7 +20,7 @@
         <right_joint>base_link_to_right_wheel</right_joint>
 
         <!-- kinematics -->
-        <wheel_separation>0.09</wheel_separation>
+        <wheel_separation>0.096</wheel_separation>
         <wheel_diameter>0.067</wheel_diameter>
 
         <!-- limits -->

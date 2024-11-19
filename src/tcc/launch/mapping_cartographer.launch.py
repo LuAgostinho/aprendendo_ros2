@@ -15,16 +15,16 @@ def generate_launch_description():
         description='Flag to set log level')
 
     simulation = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([get_package_share_directory('projeto'), '/launch/simulation.launch.py']),
+        PythonLaunchDescriptionSource([get_package_share_directory('tcc'), '/launch/simulation.launch.py']),
            launch_arguments={
-                'world_path': [get_package_share_directory('projeto'), '/simulation/worlds/simple_room_with_fixed_boxes.world'],
+                'world_path': [get_package_share_directory('tcc'), '/simulation/worlds/linha.world'],
             }.items(),
     )
 
     robot = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([get_package_share_directory('projeto'), '/launch/load.launch.py']),
+        PythonLaunchDescriptionSource([get_package_share_directory('tcc'), '/launch/load.launch.py']),
            launch_arguments={
-                'rvizconfig': [get_package_share_directory('projeto'), '/config/rviz/mapping_cartographer.rviz'],
+                'rvizconfig': [get_package_share_directory('tcc'), '/config/rviz/mapping_cartographer.rviz'],
             }.items(),
     )
 

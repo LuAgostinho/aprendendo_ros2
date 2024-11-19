@@ -17,7 +17,7 @@ def generate_launch_description():
         default_value='',
         description='Top-level namespace')
 
-    urdf_tutorial_path = get_package_share_path('projeto')
+    urdf_tutorial_path = get_package_share_path('tcc')
     default_model_path = urdf_tutorial_path / 'urdf/robot.urdf.xacro'
     # default_model_path = urdf_tutorial_path / 'urdf/sam_bot_description.urdf'
     default_rviz_config_path = urdf_tutorial_path / 'config/rviz/robot.rviz'
