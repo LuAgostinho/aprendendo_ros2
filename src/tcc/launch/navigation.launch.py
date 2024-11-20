@@ -45,8 +45,8 @@ def generate_launch_description():
            launch_arguments={
                 'use_sim_time': 'true',
                 'log_level': LaunchConfiguration('log_level'),
-                'map': [get_package_share_directory('projeto'),'/config/map/map.yaml'],
-                'params_file': [get_package_share_directory('projeto'),'/config/nav/nav2_params.yaml']
+                'map': [get_package_share_directory('tcc'),'/config/map/map.yaml'],
+                'params_file': [get_package_share_directory('tcc'),'/config/nav/nav2_params.yaml']
              }.items(),
     )
 
